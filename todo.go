@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"sort"
 	"strconv"
 
 	"github.com/urfave/cli"
@@ -30,6 +31,7 @@ func main() {
 					buf.WriteString(" " + c.Args().Get(i))
 				}
 				tasks = append(tasks, buf.String())
+				sort.Strings(tasks)
 				jsoninfo, _ := json.Marshal(tasks)
 				writeToFile(jsoninfo)
 				var arr []string
@@ -42,6 +44,7 @@ func main() {
 			Aliases: []string{"c"},
 			Usage:   "Complete a task on the list at an index or at the beginning",
 			Action: func(c *cli.Context) error {
+				sort.Strings(tasks)
 				kb := bufio.NewReader(os.Stdin)
 				index, _ := strconv.Atoi(c.Args().First())
 				fmt.Print("You will be completing: " + tasks[index] + "\nare you sure? (y/n)")
@@ -62,6 +65,7 @@ func main() {
 			Aliases: []string{"l"},
 			Usage:   "List all the tasks on the list",
 			Action: func(c *cli.Context) error {
+				sort.Strings(tasks)
 				for i, task := range tasks {
 					fmt.Println(i, task)
 				}
