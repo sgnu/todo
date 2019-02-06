@@ -25,4 +25,4 @@ This command removes a task from the list. An index (starts at 0) can be specifi
 Arguments that are not integers are interpretted as 0
 
 #### List
-This command prints out all tasks on the list including their index: 'todo list' `todo l`
+This command prints out all tasks on the list including their index: `todo list` or `todo l`
