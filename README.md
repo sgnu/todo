@@ -1,2 +1,2 @@
 # todo-app
-cli todo app written in go
+CLI todo app written in go
