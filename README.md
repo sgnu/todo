@@ -7,11 +7,12 @@ With go already installed, you can just run:
 
 Make sure your `PATH` includes `$GOPATH/bin` to quickly run commands.
 ## Usage
-There are 3 commands in todo:
+There are 4 commands in todo:
 
 1.	add, a
 2.	complete, c
-3.	list, l
+3.  edit, e
+4.	list, l
 
 #### Add
 This command adds a new task to the list:
