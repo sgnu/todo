@@ -24,6 +24,9 @@ This command removes a task from the list. An index (starts at 0) can be specifi
 
 Arguments that are not integers are interpretted as 0
 
+#### Edit
+This command changes the name of a task on the list at a given index: `todo edit 1 new name for the task` or `todo e 1 new name for the task`
+
 #### List
 This command prints out all tasks on the list including their index: `todo list` or `todo l`
 

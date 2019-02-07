@@ -47,15 +47,41 @@ func main() {
 				sort.Strings(tasks)
 				kb := bufio.NewReader(os.Stdin)
 				index, _ := strconv.Atoi(c.Args().First())
-				fmt.Print("You will be completing: " + tasks[index] + "\nare you sure? (y/n)")
+				fmt.Print("You will be completing: " + tasks[index] + "\nare you sure? (y/n): ")
 				input, _ := kb.ReadByte()
 				if input == 'y' {
 					tasks = append(tasks[:index], tasks[index+1:]...)
 					jsoninfo, _ := json.Marshal(tasks)
 					writeToFile(jsoninfo)
-					fmt.Println("Completed")
+					fmt.Println("√ Completed")
 				} else {
 					fmt.Println("Not completed")
+				}
+				return nil
+			},
+		},
+		{
+			Name:    "edit",
+			Aliases: []string{"e"},
+			Usage:   "Edit the name of a task on the list",
+			Action: func(c *cli.Context) error {
+				index, _ := strconv.Atoi(c.Args().First())
+				kb := bufio.NewReader(os.Stdin)
+				var buf bytes.Buffer
+				buf.WriteString(c.Args().Get(1))
+				for i := 2; i < len(c.Args()); i++ {
+					buf.WriteString(" " + c.Args().Get(i))
+				}
+				fmt.Print("You will be changing: ", tasks[index], "\nto: ", buf.String(), "\nAre you sure? (y/n): ")
+				input, _ := kb.ReadByte()
+				if input == 'y' {
+					tasks[index] = buf.String()
+					sort.Strings(tasks)
+					jsoninfo, _ := json.Marshal(tasks)
+					writeToFile(jsoninfo)
+					fmt.Println("Changed task", index, "to:", buf.String())
+				} else {
+					fmt.Println("Nothing was changed")
 				}
 				return nil
 			},
