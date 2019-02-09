@@ -101,7 +101,10 @@ func main() {
 	}
 
 	app.Action = func(c *cli.Context) error {
-		fmt.Println("Use the help to use this app")
+		sort.Strings(tasks)
+		for i, task := range tasks {
+			fmt.Println(i, task)
+		}
 		return nil
 	}
 
