@@ -18,15 +18,26 @@ There are 4 commands in todo:
 This command adds a new task to the list:
 `todo add This is a new task` or `todo a This is a new task`
 
+Naming tasks as:
+`todo add MM/DD #TASKNAME#`
+ (zero padded dates) is recommended to sort tasks by their due dates, and general tasks come afterwards:
+```
+0 01/01 Celebrate New Years
+1 01/02 Start New Years Resolutions
+2 Learn go
+```
+
 New tasks are added to the list and automatically sorted as strings
 
 #### Complete
-This command removes a task from the list. An index (starts at 0) can be specified, but otherwise removes the first task: `todo complete 1` or `todo c 1`
+This command removes a task from the list. An index (starts at 0) can be specified, but otherwise removes the first task:
+`todo complete 1` or `todo c 1`
 
 Arguments that are not integers are interpretted as 0
 
 #### Edit
-This command changes the name of a task on the list at a given index: `todo edit 1 new name for the task` or `todo e 1 new name for the task`
+This command changes the name of a task on the list at a given index:
+`todo edit 1 new name for the task` or `todo e 1 new name for the task`
 
 #### List
 This command prints out all tasks on the list including their index: `todo list` or `todo l`
