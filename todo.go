@@ -135,7 +135,7 @@ func readFromUser() []byte {
 }
 
 func readFromFile() []string {
-	f, err := os.Open("/tmp/tasks")
+	f, err := os.Open(os.Getenv("GOPATH") + "/tasks")
 	check(err)
 
 	defer f.Close()
@@ -151,7 +151,7 @@ func readFromFile() []string {
 }
 
 func writeToFile(data []byte) {
-	f, err := os.Create("/tmp/tasks")
+	f, err := os.Create(os.Getenv("GOPATH") + "/tasks")
 	check(err)
 
 	defer f.Close()
