@@ -6,12 +6,14 @@ With go already installed, you can just run:
 `go get github.com/sgnu/todo`
 
 Make sure your `PATH` includes `$GOPATH/bin` to quickly run commands.
+
+Afterwards, create a file named `tasks` in your `$GOPATH` directory. This is an important step otherwise todo will panic due to no file error.
 ## Usage
 There are 4 commands in todo:
 
 1.	add, a
 2.	complete, c
-3.  edit, e
+3.	edit, e
 4.	list, l
 
 #### Add
@@ -41,5 +43,7 @@ This command changes the name of a task on the list at a given index:
 
 #### List
 This command prints out all tasks on the list including their index: `todo list` or `todo l`
+
+Running `todo` by itself defaults to running list.
 
 The list is automatically sorted before printing
